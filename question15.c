@@ -1,45 +1,55 @@
-// Store 5 numbers in array and sort it in ascending order
+// Write a program in C to find the largest and smallest words in a string.
 
+#include <stdio.h>
+#include <string.h>
 
-    #include <stdio.h>
+void findLargestAndSmallestWords(char *str) {
+    char smallestWord[100], largestWord[100];
+    int smallestLength = 100, largestLength = 0;
 
-#define NUMBERS_COUNT 5
+    char *start = str;
+    char *end = str;
 
-void bubbleSort(int arr[], int n);
+    while (*end != '\0') {
+        while (*end != ' ' && *end != '\0') {
+            end++;
+        }
+
+        int wordLength = end - start;
+
+        if (wordLength < smallestLength) {
+            strncpy(smallestWord, start, wordLength);
+            smallestWord[wordLength] = '\0';
+            smallestLength = wordLength;
+        }
+        if (wordLength > largestLength) {
+            strncpy(largestWord, start, wordLength);
+            largestWord[wordLength] = '\0';
+            largestLength = wordLength;
+        }
+
+        if (*end != '\0') {
+            end++;
+            start = end;
+        }
+    }
+
+    printf("Smallest word: %s\n", smallestWord);
+    printf("Largest word: %s\n", largestWord);
+}
 
 int main() {
-    int numbers[NUMBERS_COUNT];
+    char str[1000];
 
-    // Input numbers
-    printf("Enter %d numbers:\n", NUMBERS_COUNT);
-    for (int i = 0; i < NUMBERS_COUNT; i++) {
-        printf("Enter number %d: ", i + 1);
-        scanf("%d", &numbers[i]);
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin);
+
+    if (str[strlen(str) - 1] == '\n') {
+        str[strlen(str) - 1] = '\0';
     }
 
-    // Sort numbers
-    bubbleSort(numbers, NUMBERS_COUNT);
-
-    // Display sorted numbers
-    printf("\nNumbers in ascending order:\n");
-    for (int i = 0; i < NUMBERS_COUNT; i++) {
-        printf("%d ", numbers[i]);
-    }
-    printf("\n");
+    findLargestAndSmallestWords(str);
 
     return 0;
 }
 
-// Function to perform bubble sort
-void bubbleSort(int arr[], int n) {
-    for (int i = 0; i < n - 1; i++) {
-        for (int j = 0; j < n - i - 1; j++) {
-            if (arr[j] > arr[j + 1]) {
-                // Swap arr[j] and arr[j+1]
-                int temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
-            }
-        }
-    }
-}
