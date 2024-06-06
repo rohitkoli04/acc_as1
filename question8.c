@@ -1,48 +1,26 @@
-//  WAP to reverse a string and check that the string is palindrome or not
-// Write a program of structure employee that provides the following
-// a. information -print and display empno, empname, address
-// andage
-// b. Write a program of structure for five employee that
-// provides the following information -print and display
-// empno, empname, address andage
-
-
 #include <stdio.h>
 
-struct Employee {
-    int empno;
-    char empname[50];
-    char address[100];
-    int age;
-};
 
-// Function prototype
-void displayEmployee(struct Employee emp);
-
-int main() {
-    struct Employee emp;
-
-    // Input employee details
-    printf("Enter employee number: ");
-    scanf("%d", &emp.empno);
-    printf("Enter employee name: ");
-    scanf("%s", emp.empname);
-    printf("Enter employee address: ");
-    scanf("%s", emp.address);
-    printf("Enter employee age: ");
-    scanf("%d", &emp.age);
-
-    // Display employee information
-    printf("\nEmployee Information:\n");
-    displayEmployee(emp);
-
-    return 0;
+float calculatePerimeter(float side1, float side2, float side3) {
+    return side1 + side2 + side3;
 }
 
-// Function to display employee information
-void displayEmployee(struct Employee emp) {
-    printf("Employee Number: %d\n", emp.empno);
-    printf("Employee Name: %s\n", emp.empname);
-    printf("Employee Address: %s\n", emp.address);
-    printf("Employee Age: %d\n", emp.age);
+int main() {
+    float side1, side2, side3;
+
+    // Input the lengths of the sides from the user
+    printf("Enter the length of side 1: ");
+    scanf("%f", &side1);
+    printf("Enter the length of side 2: ");
+    scanf("%f", &side2);
+    printf("Enter the length of side 3: ");
+    scanf("%f", &side3);
+
+    // Calculate the perimeter
+    float perimeter = calculatePerimeter(side1, side2, side3);
+
+    // Display the result
+    printf("The perimeter of the triangle is: %.2f\n", perimeter);
+
+    return 0;
 }

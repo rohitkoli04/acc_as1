@@ -1,29 +1,13 @@
-// .WAP to show difference between Structure and Union
-
 #include <stdio.h>
+ float calculatedannualsalrya( float monthlysalary){
+    return 12 * monthlysalary;
+    int main (){
+float monthlysalary, annunalsalary;
 
-// Define a structure
-struct ExampleStruct {
-    int x;
-    char y;
-};
-
-// Define a union
-union ExampleUnion {
-    int x;
-    char y;
-};
-
-int main() {
-    struct ExampleStruct myStruct;
-    union ExampleUnion myUnion;
-
-    // Size of structure
-    printf("Size of Structure: %lu bytes\n", sizeof(myStruct));
-
-    // Size of union
-    printf("Size of Union: %lu bytes\n", sizeof(myUnion));
-
-    return 0;
-}
-``
+printf("enter the persons monthlyslary: ");
+scanf("%f", monthlysalary);
+ annunalsalary = calculatedannualsalrya(monthlysalary);
+  printf("The person's annual salary is: $%.2f\n", annualSalary);
+ return 0;
+    }
+ }

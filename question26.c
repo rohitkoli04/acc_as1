@@ -1,30 +1,18 @@
-// vowel  Consonant using switch case
-
-// Program to check if a character is vowel or consonant using switch-case
 #include <stdio.h>
 
 int main() {
-    char ch;
+    int days, months, remainingDays;
 
-    printf("Enter a character: ");
-    scanf(" %c", &ch);
+    // Input number of days from user
+    printf("Enter number of days: ");
+    scanf("%d", &days);
 
-    switch (ch) {
-        case 'a':
-        case 'e':
-        case 'i':
-        case 'o':
-        case 'u':
-        case 'A':
-        case 'E':
-        case 'I':
-        case 'O':
-        case 'U':
-            printf("%c is a vowel.\n", ch);
-            break;
-        default:
-            printf("%c is a consonant.\n", ch);
-    }
+    // Convert days into months
+    months = days / 30;  // Approximating month to 30 days
+    remainingDays = days % 30;
+
+    // Display the result
+    printf("Equivalent months: %d months and %d days\n", months, remainingDays);
 
     return 0;
 }

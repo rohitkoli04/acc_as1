@@ -1,41 +1,17 @@
-//  WAP to show
-// i. Monday to Sunday using switch case
-
-
-// Program to display Monday to Sunday using switch-case
 #include <stdio.h>
 
 int main() {
-    int day;
+    float fahrenheit, celsius;
 
-    printf("Enter a number between 1 and 7: ");
-    scanf("%d", &day);
+    // Input temperature in Fahrenheit from user
+    printf("Enter temperature in Fahrenheit: ");
+    scanf("%f", &fahrenheit);
 
-    switch (day) {
-        case 1:
-            printf("Monday\n");
-            break;
-        case 2:
-            printf("Tuesday\n");
-            break;
-        case 3:
-            printf("Wednesday\n");
-            break;
-        case 4:
-            printf("Thursday\n");
-            break;
-        case 5:
-            printf("Friday\n");
-            break;
-        case 6:
-            printf("Saturday\n");
-            break;
-        case 7:
-            printf("Sunday\n");
-            break;
-        default:
-            printf("Invalid input. Please enter a number between 1 and 7.\n");
-    }
+    // Convert Fahrenheit to Celsius
+    celsius = (fahrenheit - 32) * 5 / 9;
+
+    // Display temperature in Celsius
+    printf("Temperature in Celsius: %.2f\n", celsius);
 
     return 0;
 }

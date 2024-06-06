@@ -1,41 +1,28 @@
-// WAP  input the week number and print week day.
+#include <stdio.h>
 
-#include<stdio.h>
-int main(){
-    int week_month;
-     // take a input days user
+int main() {
+    float monthlySalary, insurancePremium, remainingSalary, loanInstallment;
 
-     printf("enter the weeks (1-7):");
-     scanf("%d",&week_month);
+    // Accept monthly salary from the user
+    printf("Enter monthly salary: ");
+    scanf("%f", &monthlySalary);
 
-     // cheak the number with dayes 
-switch (week_month)
-{
-case 1:
-  printf ("monday\n");
-    break;
-case 2:
-printf("tuessay\n");
-break;
-case 3:
-printf("wenesday\n");
-break;
-case 4:
-printf("thursday\n");
-break;
-case 5:
-printf("friday\n");
-break;
-case 6:
-printf("staueday\n");
-break;
-case 7:
-printf("sunday\n");
-break;
+    // Calculate insurance premium (10%)
+    insurancePremium = 0.1 * monthlySalary;
 
+    // Deduct insurance premium
+    remainingSalary = monthlySalary - insurancePremium;
 
-default:
-printf("wrong number plz enter the (1-7)\n");
-}
-return 0;
+    // Calculate loan installment (10% of remaining salary)
+    loanInstallment = 0.1 * remainingSalary;
+
+    // Deduct loan installment
+    remainingSalary -= loanInstallment;
+
+    // Display results
+    printf("Monthly salary after insurance premium deduction: %.2f\n", remainingSalary);
+    printf("Insurance premium: %.2f\n", insurancePremium);
+    printf("Loan installment: %.2f\n", loanInstallment);
+
+    return 0;
 }

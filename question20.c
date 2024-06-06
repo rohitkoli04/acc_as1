@@ -1,36 +1,28 @@
-//  Write a C program to input basic salary of an employee and calculateits
-// Gross salary according to following:
-// Basic Salary <= 10000 : HRA = 20%, DA = 80%
-// Basic Salary <= 20000 : HRA = 25%, DA = 90%
-// Basic Salary > 20000 : HRA = 30%, DA = 95%\
-
 #include <stdio.h>
+#include <math.h>
+
+float calculateCompoundInterest(float principal, float rate, int time) {
+    float compoundInterest;
+    compoundInterest = principal * (pow((1 + rate / 100), time)) - principal;
+    return compoundInterest;
+}
 
 int main() {
-    float basic_salary, gross_salary;
-    float hra, da;
+    float principal, rate, compoundInterest;
+    int time;
 
-    // Input basic salary
-    printf("Enter the basic salary of the employee: ");
-    scanf("%f", &basic_salary);
+    printf("Enter principal amount: ");
+    scanf("%f", &principal);
 
-    // Calculate HRA and DA based on conditions
-    if (basic_salary <= 10000) {
-        hra = 0.2 * basic_salary;
-        da = 0.8 * basic_salary;
-    } else if (basic_salary <= 20000) {
-        hra = 0.25 * basic_salary;
-        da = 0.9 * basic_salary;
-    } else {
-        hra = 0.3 * basic_salary;
-        da = 0.95 * basic_salary;
-    }
+    printf("Enter rate of interest: ");
+    scanf("%f", &rate);
 
-    // Calculate gross salary
-    gross_salary = basic_salary + hra + da;
+    printf("Enter time period (in years): ");
+    scanf("%d", &time);
 
-    // Print the gross salary
-    printf("Gross salary: %.2f\n", gross_salary);
+    compoundInterest = calculateCompoundInterest(principal, rate, time);
+
+    printf("Compound Interest = %.2f\n", compoundInterest);
 
     return 0;
 }

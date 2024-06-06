@@ -1,29 +1,30 @@
-//  Perform 2D matrix array
-
-
 #include <stdio.h>
 
-#define NUMBERS_COUNT 5
+float calculateInsurancePremium(float salary) {
+    float premium;
+
+    if (salary < 5000) {
+        premium = 0.02 * salary;
+    } else if (salary >= 5000 && salary < 10000) {
+        premium = 0.04 * salary;
+    } else {
+        premium = 0.06 * salary;
+    }
+
+    return premium;
+}
 
 int main() {
-    int numbers[NUMBERS_COUNT];
+    float salary;
 
-    // Input numbers
-    printf("Enter %d numbers:\n", NUMBERS_COUNT);
-    for (int i = 0; i < NUMBERS_COUNT; i++) {
-        printf("Enter number %d: ", i + 1);
-        scanf("%d", &numbers[i]);
-    }
+    printf("Enter your salary: ");
+    scanf("%f", &salary);
 
-    // Check even or odd and display result
-    printf("\nResult:\n");
-    for (int i = 0; i < NUMBERS_COUNT; i++) {
-        if (numbers[i] % 2 == 0) {
-            printf("%d is even.\n", numbers[i]);
-        } else {
-            printf("%d is odd.\n", numbers[i]);
-        }
-    }
+
+    float premium = calculateInsurancePremium(salary);
+
+  
+    printf("Your insurance premium is: $%.2f\n", premium);
 
     return 0;
 }
